@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塾講師 TODOアプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>📚 塾講師 TODO</h1>
+      <p class="date" id="today"></p>
+    </header>
+
+    <!-- タスク追加フォーム -->
+    <section class="add-task">
+      <h2>タスクを追加</h2>
+      <form id="task-form">
+        <div class="form-row">
+          <input type="text" id="task-title" placeholder="タスク名" required maxlength="100">
+        </div>
+        <div class="form-row three-col">
+          <select id="task-category">
+            <option value="授業準備">📖 授業準備</option>
+            <option value="採点・添削">✏️ 採点・添削</option>
+            <option value="成績管理">📊 成績管理</option>
+            <option value="保護者連絡">📞 保護者連絡</option>
+            <option value="生徒管理">👤 生徒管理</option>
+            <option value="事務作業">📋 事務作業</option>
+            <option value="その他">💬 その他</option>
+          </select>
+          <select id="task-priority">
+            <option value="高">🔴 優先度：高</option>
+            <option value="中" selected>🟡 優先度：中</option>
+            <option value="低">🟢 優先度：低</option>
+          </select>
+          <input type="date" id="task-due">
+        </div>
+        <div class="form-row">
+          <input type="text" id="task-student" placeholder="生徒名（任意）" maxlength="50">
+          <button type="submit">追加</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 検索バー -->
+    <section class="search-bar">
+      <input type="text" id="search-input" placeholder="🔍 タスクを検索...">
+    </section>
+
+    <!-- フィルター -->
+    <section class="filters">
+      <div class="filter-group">
+        <label>表示：</label>
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="active">未完了</button>
+        <button class="filter-btn" data-filter="done">完了済み</button>
+      </div>
+      <div class="filter-group">
+        <label>カテゴリ：</label>
+        <select id="category-filter">
+          <option value="all">すべて</option>
+          <option value="授業準備">📖 授業準備</option>
+          <option value="採点・添削">✏️ 採点・添削</option>
+          <option value="成績管理">📊 成績管理</option>
+          <option value="保護者連絡">📞 保護者連絡</option>
+          <option value="生徒管理">👤 生徒管理</option>
+          <option value="事務作業">📋 事務作業</option>
+          <option value="その他">💬 その他</option>
+        </select>
+      </div>
+      <button class="clear-done-btn" id="clear-done">完了済みを削除</button>
+    </section>
+
+    <!-- タスク一覧 -->
+    <section class="task-list-section">
+      <div class="task-stats" id="task-stats"></div>
+      <ul id="task-list"></ul>
+      <p class="empty-msg" id="empty-msg" style="display:none">タスクがありません</p>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
